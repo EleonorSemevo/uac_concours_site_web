@@ -1,0 +1,114 @@
+models:
+  Models\Domaine:
+    titre: string
+    timestamps: true
+    softDeletes: true
+    relationships:
+      hasMany: Opportunite
+      
+
+  Models\Actualite:
+    titre: string:400
+    images: string
+    contenu: longtext
+    auteur_id: id foreign:users nullable
+    date_publication: nullable timestamp
+    timestamps: true
+    softDeletes: true
+
+  Models\Opportunite:
+    domaine_id: id foreign
+    type: emum:stage,emploi
+    titre: string
+    contenu: longtext
+    date_expiration: nullable timestamp
+    date_publication: nullable timestamp
+    user_id: id foreign 
+    timestamps: true
+    softDeletes: true
+
+  
+  Models\AstuceTruc:
+    titre: string
+    contenu: longtext
+    date_publication: nullable timestamp
+    auteur: string
+    user_id: id foreign 
+    timestamps: true
+    softDeletes: true
+
+  Models\Faq:
+    question: string
+    reponse: longtext
+    timestamps: true
+    softDeletes: true
+
+
+  Models\Souscris:
+    mail: string unique
+    timestamps: true
+    softDeletes: true
+
+  
+  Models\Message:
+    nom: string
+    prenom: string
+    mail: string
+    objet: string
+    message: longtext
+    reponse: longtext
+    timestamps: true
+    softDeletes: true
+  
+  Models\Newsletter:
+    titre: string
+    contenu: longtext
+    timestamps: true
+    softDeletes: true
+  
+  Models\Partenaires:
+    domaine_id: id foreign 
+    titre: string
+    timestamps: true
+    softDeletes: true
+  
+  
+  Models\Publication:
+    titre: string:400
+    image: string
+    date_publication: nullable timestamp
+    contenu: longtext
+    auteur_id: id foreign:users nullable
+    like: integer unsigned default:0
+    timestamps: true
+    softDeletes: true
+
+  Models\Etudiant:
+    nom: string
+    prenom: string
+    date_naissance: datetime
+    matricule: unique string
+    faculte: enum:Fashs, Fast, Fadesp, Faseg, EPAC, ENAM, ILACI, ENEAM, INJEPS, IUT, INE, FSS, FSA, IRSP, HERCI, ENSTIC, ESTBR, ENS, ENSET, CIFRED, Ceforp, IFRI, Cebelae
+    timestamps: true
+    softDeletes: true
+  
+  Models\Recruteur:
+    nom: string
+    prenom: string
+    institution: unique string
+    timestamps: true
+    softDeletes: true
+
+  
+  
+  
+ 
+
+
+  
+  
+
+seeders: Domaine, Actualite, Opportunite, AstuceTruc, Souscris, Message, Newsletter, Faq, Partenaires, Publication, Etudiant, Recruteur
+  
+
+    

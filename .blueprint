@@ -1,0 +1,62 @@
+created:
+    - database/factories/Models/DomaineFactory.php
+    - database/factories/Models/ActualiteFactory.php
+    - database/factories/Models/OpportuniteFactory.php
+    - database/factories/Models/AstuceTrucFactory.php
+    - database/factories/Models/FaqFactory.php
+    - database/factories/Models/SouscrisFactory.php
+    - database/factories/Models/MessageFactory.php
+    - database/factories/Models/NewsletterFactory.php
+    - database/factories/Models/PartenairesFactory.php
+    - database/factories/Models/PublicationFactory.php
+    - database/factories/Models/EtudiantFactory.php
+    - database/factories/Models/RecruteurFactory.php
+    - database/migrations/2020_12_20_164417_create_domaines_table.php
+    - database/migrations/2020_12_20_164418_create_actualites_table.php
+    - database/migrations/2020_12_20_164419_create_opportunites_table.php
+    - database/migrations/2020_12_20_164420_create_astuce_trucs_table.php
+    - database/migrations/2020_12_20_164421_create_faqs_table.php
+    - database/migrations/2020_12_20_164422_create_souscris_table.php
+    - database/migrations/2020_12_20_164423_create_messages_table.php
+    - database/migrations/2020_12_20_164424_create_newsletters_table.php
+    - database/migrations/2020_12_20_164425_create_partenaires_table.php
+    - database/migrations/2020_12_20_164426_create_publications_table.php
+    - database/migrations/2020_12_20_164427_create_etudiants_table.php
+    - database/migrations/2020_12_20_164428_create_recruteurs_table.php
+    - app/Models/Domaine.php
+    - app/Models/Actualite.php
+    - app/Models/Opportunite.php
+    - app/Models/Astuce_truc.php
+    - app/Models/Faq.php
+    - app/Models/Souscris.php
+    - app/Models/Message.php
+    - app/Models/Newsletter.php
+    - app/Models/Partenaires.php
+    - app/Models/Publication.php
+    - app/Models/Etudiant.php
+    - app/Models/Recruteur.php
+    - database/seeders/DomaineSeeder.php
+    - database/seeders/ActualiteSeeder.php
+    - database/seeders/OpportuniteSeeder.php
+    - database/seeders/Astuce_trucSeeder.php
+    - database/seeders/SouscrisSeeder.php
+    - database/seeders/MessageSeeder.php
+    - database/seeders/NewsletterSeeder.php
+    - database/seeders/FaqSeeder.php
+    - database/seeders/PartenairesSeeder.php
+    - database/seeders/PublicationSeeder.php
+    - database/seeders/EtudiantSeeder.php
+    - database/seeders/RecruteurSeeder.php
+models:
+    Models\Domaine: { titre: string, timestamps: timestamps, softdeletes: softDeletes, relationships: { hasMany: Opportunite } }
+    Models\Actualite: { titre: 'string:400', images: string, contenu: longtext, auteur_id: 'id foreign:users nullable', date_publication: 'nullable timestamp', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Opportunite: { domaine_id: 'id foreign', type: 'emum:stage, emploi', titre: string, contenu: longtext, date_expiration: 'nullable timestamp', date_publication: 'nullable timestamp', user_id: 'id foreign', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Astuce_truc: { titre: string, contenu: longtext, date_publication: 'nullable timestamp', auteur: string, user_id: 'id foreign', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Faq: { question: string, reponse: longtext, timestamps: timestamps, softdeletes: softDeletes }
+    Models\Souscris: { mail: 'string unique', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Message: { nom: string, prenom: string, mail: string, objet: string, message: longtext, reponse: longtext, timestamps: timestamps, softdeletes: softDeletes }
+    Models\Newsletter: { titre: string, contenu: longtext, timestamps: timestamps, softdeletes: softDeletes }
+    Models\Partenaires: { domaine_id: 'id foreign', titre: string, timestamps: timestamps, softdeletes: softDeletes }
+    Models\Publication: { titre: 'string:400', image: string, date_publication: 'nullable timestamp', contenu: longtext, auteur_id: 'id foreign:users nullable', like: 'integer unsigned default:0', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Etudiant: { nom: string, prenom: string, date_naissance: datetime, matricule: 'unique string', faculte: 'enum:Fashs, Fast, Fadesp, Faseg, EPAC, ENAM, ILACI, ENEAM, INJEPS, IUT, INE, FSS, FSA, IRSP, HERCI, ENSTIC, ESTBR, ENS, ENSET, CIFRED, Ceforp, IFRI, Cebelae', timestamps: timestamps, softdeletes: softDeletes }
+    Models\Recruteur: { nom: string, prenom: string, institution: 'unique string', timestamps: timestamps, softdeletes: softDeletes }
