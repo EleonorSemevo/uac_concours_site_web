@@ -37,4 +37,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Exception $e){
+        if ($e instanceof ModelNotFoundException){
+            if($request->ajax()){
+                return response()->view('errors.missing', [], 404)
+            }
+        }
+        return parent::render($request, $e);
+    }
 }

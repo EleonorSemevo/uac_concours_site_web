@@ -50,7 +50,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{url('/ressource/trucs-et-astuces')}}">Trucs et Astuces</a></li>
-            <li><a class="dropdown-item" href="#">Podcast Employabilité</a></li>
+            <li><a class="dropdown-item" href="{{url('https://uac.bj/')}}">Podcast Employabilité</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{url('/ressource/faq')}}">Foire aux questions</a></li>
           </ul>

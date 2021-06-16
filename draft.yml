@@ -98,6 +98,34 @@ models:
     institution: unique string
     timestamps: true
     softDeletes: true
+    
+    
+  Models\fiche_technique:
+    ethrellage: enum:
+    mode_plantation: enum:
+    densite: enum:
+    date_tif: date
+    exploitation_id: id foreign
+    marqueur: string
+    quantite_a_produire: integer
+    timestamps: true
+    softDeletes: true
+    
+  Models\commande:
+    date: date
+    client_id: id foreign
+    montant_total: integer
+    mode_retrait: enum:
+    date_livraison_souhaite: date
+    softDeletes: true
+    
+  Models\ligne_commande:
+    commande_id: id foreign
+    produit_id: id foreign
+    quantite_en_stock: double
+    categorie: enum:
+    timestamps: true
+    softDeletes: true
 
   
   
